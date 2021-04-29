@@ -1,0 +1,36 @@
+{% extends 'layouts/base.html' %}
+
+{% block contents %} 
+        <table class="table table-bordered">
+            <thead>
+                <th class="text-center">materia</th>
+                <th class="text-center">fecha</th>
+                <th class="text-center">hora inicio</th>
+                <th class="text-center">hora finalizacion</th>
+                <th class="text-center">acciones</th>
+            </thead>
+
+            <tbody>
+                {% for sesion in sesiones %}
+                    <tr>
+                        <td>{{sesion[1]}}</td>
+                        <td>{{sesion[2]}}</td>
+                        <td>{{sesion[3]}}</td>
+                        <td>{{sesion[4]}}</td>
+
+                        <td>
+                            <div class="text-center">
+                                    <a class="btn btn-primary" href="{{url_for('editarSesion', id=sesion[0])}}">ediar</a>
+                                    <a class="btn btn-success" href="{{url_for('listarAsistencia', id=sesion[0])}}">asistencia</a>
+                                    <a class="btn btn-danger" href="{{url_for('eliminarSesion', id=sesion[0])}}">eliminar</a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    <div class="d-flex flex-row-reverse">
+        <a href="{{url_for('nuevaSesion')}}" class="btn btn-primary">nueva sesion</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html' %}
+
+{% block contents %}
+        <table class="table table-bordered">
+            <thead>
+                <th class="text-center">identificacion</th>
+                <th class="text-center">nombre</th>
+                <th class="text-center">apellidos</th>
+                <th class="text-center">celular</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">semetre</th>
+                <th class="text-center">acciones</th>
+            </thead>
+            <tbody>
+                {% for estuidante in estudiantes %}
+                    <tr>
+                        <td >{{estuidante[1]}}</td>
+                        <td >{{estuidante[2]}}</td>
+                        <td >{{estuidante[3]}}</td>
+                        <td >{{estuidante[4]}}</td>
+                        <td >{{estuidante[5]}}</td>
+                        <td >{{estuidante[6]}}</td>
+                        <td>
+                            <a class="btn btn-primary" href="{{url_for('editar', id=estuidante[0])}}">editar</a>
+                            <a class="btn btn-danger" href="{{url_for('eliminar', id=estuidante[0])}}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    <div class="d-flex flex-row-reverse">
+        <a href="{{url_for('nuevoEstudiante')}}" class="btn btn-primary">Nuevo</a>
+    </div>
+{% endblock %}

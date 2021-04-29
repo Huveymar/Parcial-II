@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html' %} {% block contents %}
+<form action="{{url_for('editar', id=estudiante[0])}}" method="POST">
+    <div class="mb-3">
+        <label class="form-label" for="identificacion">Numero de Identificacion:</label>
+        <input type="text" class="form-control" id="identificacion" name="identificacion" value="{{estudiante[1]}}">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="nombres">nombres:</label>
+        <input type="text" class="form-control" id="nombres" name="nombres" value="{{estudiante[2]}}">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="apellidos">apellidos:</label>
+        <input type="text" class="form-control" id="apellidos" name="apellidos" value="{{estudiante[3]}}">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="celular">Celular:</label>
+        <input type="text" class="form-control" id="celular" name="celular" value="{{estudiante[4]}}">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" value="{{estudiante[5]}}">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="semestre">Semestre:</label>
+        <input type="text" class="form-control" id="semestre" name="semestre" value="{{estudiante[6]}}">
+    </div>
+
+    <button type="submit" class="btn btn-primary">guardar</button>
+</form>
+{% endblock %}

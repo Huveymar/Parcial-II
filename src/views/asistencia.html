@@ -1,0 +1,50 @@
+{% extends 'layouts/base.html' %}
+
+{% block contents %} 
+    <table class="table table-bordered">
+        <h1>Sesion</h1>
+        <thead>
+            <th>materia</th>
+            <th>fecha</th>
+            <th>hora inicio</th>
+            <th>hora final</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{sesion[1]}}</td>
+                <td>{{sesion[2]}}</td>
+                <td>{{sesion[3]}}</td>
+                <td>{{sesion[4]}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1>Asistencia</h1>
+    <table class="table table-bordered">
+        <thead>
+            <th class="text-center">identifiacion</th>
+            <th class="text-center">nombres</th>
+            <th class="text-center">apellidos</th>
+            <th class="text-center">celular</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Semester</th>
+            <th class="text-center">asistencia</th>
+        </thead>
+        <tbody>
+                {% for estudiante in estudiantes %}
+                    <tr>
+                        <td>{{estudiante[1]}}</td>
+                        <td>{{estudiante[2]}}</td>
+                        <td>{{estudiante[3]}}</td>
+                        <td>{{estudiante[4]}}</td>
+                        <td>{{estudiante[5]}}</td>
+                        <td>{{estudiante[6]}}</td>
+
+                        <td>
+                            
+                        </td>
+                    </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

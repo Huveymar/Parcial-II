@@ -1,0 +1,28 @@
+{% extends 'layouts/base.html' %}
+
+{% block contents %} 
+    <table class="table table-bordered">
+        <thead>
+            <th class="text-center">nombre</th>
+            <th class="text-center">semestre</th>
+            <th class="text-center">acciones</th>
+        </thead>
+
+        <tbody>
+            {% for materia in materias %}
+                <tr>
+                    <td>{{materia[1]}}</td>
+                    <td>{{materia[2]}}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{url_for('editarMateria', id=materia[0])}}">editar</a>
+                        <a class="btn btn-danger" href="{{url_for('eliminarMateria', id=materia[0])}}">eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="d-flex flex-row-reverse">
+        <a href="{{url_for('nuevaMateria')}}" class="btn btn-primary">Nueva materia</a>
+    </div>
+{% endblock %}
